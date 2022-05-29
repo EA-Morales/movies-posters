@@ -1,43 +1,41 @@
-import { useState } from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import './App.css';
+import { useState } from 'react';
+import Debounce from './components/debounce';
+import Movies from './components/Movies';
+
+const API_KEY = 'd4f42ac06c2fc5dfa64720201a53ec39';
+const URL = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=es-ES&query=`;
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [movies, setmovies] = useState([]);
+
+  function Buscador(e) {
+    const query = e.target.value || 'batman';
+
+    fetch(`${URL}${query}`)
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        setmovies(data.results);
+      })
+      .catch(err => console.log('Solicitud fallida', err));
+  }
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p className="text-red-700">Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.jsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {" | "}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
+    <div className=''>
+      <h1 className='mb-4 text-center'>Buscador de peliculas</h1>
+      <label htmlFor='' className='flex justify-center'>
+        <input
+          onChange={Debounce(Buscador, 700)}
+          className='self-center text-center border-2 border-purple-600 rounded-lg'
+          type='text'
+          placeholder='buscar peliculas...'
+        />
+      </label>
+      <div className='container bg-slate-500 mx-auto'>
+        {movies.length > 0 &&
+          movies.map(movie => <Movies key={movie.id} {...movie} />)}
+      </div>
     </div>
   );
 }
