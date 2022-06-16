@@ -1,2 +1,8 @@
-# boiler-plate-react-tailwind
- boiler plate react vanilla tailwind eslint prettier
+# Objetivo
+
+Crear un buscador de peliculas
+
+## Herramientas
+
+- React with Vite
+- Tailwind Css
