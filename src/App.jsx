@@ -1,14 +1,7 @@
-import './App.css';
-import MoviesGrid from './components/MoviesGrid/MoviesGrid';
+import './styles/App.css';
 
 function App() {
-	return (
-		<div className='container mx-auto'>
-			<h1 className='text-red-300 text-center'>Movie Database</h1>
-
-			<MoviesGrid />
-		</div>
-	);
+	return <div className='container mx-auto'>hola mundo</div>;
 }
 
 export default App;
