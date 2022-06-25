@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { API_TOP_MOVIES } from '../../constants/api';
+import { movieApiMapper } from '../mappers/movie-api-mapper';
 
 export const searchTrendingMovies = async page => {
 	try {
@@ -12,7 +13,10 @@ export const searchTrendingMovies = async page => {
 				await response.data;
 			return {
 				success: true,
-				data: { movies, totalPages },
+				data: {
+					movies: movies.map(movie => movieApiMapper(movie)),
+					totalPages,
+				},
 			};
 		}
 		return { success: false, statusCode: response.status };

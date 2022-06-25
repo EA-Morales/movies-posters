@@ -17,9 +17,9 @@ function App() {
 						<MovieCard
 							key={movie.id}
 							title={movie.title}
-							image={movie.poster_path}
-							year={movie.release_date}
-							rating={movie.vote_average}
+							image={movie.image}
+							year={movie.year}
+							rating={movie.rating}
 						/>
 					))}
 			</div>
