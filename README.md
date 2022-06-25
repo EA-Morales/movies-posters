@@ -1,6 +1,6 @@
 # Objetivo
 
-La prueba consistirá en realizar una mini-webapp en la que se mostrará un listado de películas con su póster y título. Una vez que se pinche en la imagen de alguna de ellas se visualizará un detalle de los datos de la película en una modal y un pequeño formulario en el que puedas poner puntuación a la misma.
+El proyecto consistirá en realizar una mini-webapp en la que se mostrará un listado de películas trending con su póster y título, mas un buscador de peliculas en tiempo real (buscar a medida que tipeas). Una vez que se pinche en la imagen de alguna de ellas se visualizará un detalle de los datos de la película en una modal.
 
 ## Condiciones:
 
@@ -25,3 +25,13 @@ La prueba consistirá en realizar una mini-webapp en la que se mostrará un list
 [ ] Chakra ui
 
 [x] Axios
+
+## Objetivos mediano plazo
+
+> Backend con framework JS
+
+> Firebase como base de datos
+
+> Firebase auth
+
+> favs movies, calendar movies, alerts, etc
