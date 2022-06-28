@@ -1,16 +1,10 @@
-import MovieCard from './components/movie-card';
+import MoviesGrid from './components/movies-grid';
 import { useMoviesSearch } from './lib/hooks/useMoviesSearch';
 import './styles/App.css';
 
 function App() {
 	const { movies, searchTerm, page, loading, error, setSearchTerm, setPage } =
 		useMoviesSearch();
-
-	// TODO - This elements under don't belong this component
-	if (loading) return <div>Loading...</div>;
-
-	if (error) return <div>{error}</div>;
-	// TODO
 
 	return (
 		<div className='container mx-auto'>
@@ -27,18 +21,7 @@ function App() {
 					<button onClick={() => setPage(page + 1)}>page {page}</button>
 				</div>
 			</div>
-			<div className='flex flex-wrap'>
-				{movies &&
-					movies.map(movie => (
-						<MovieCard
-							key={movie.id}
-							title={movie.title}
-							image={movie.image}
-							year={movie.year}
-							rating={movie.rating}
-						/>
-					))}
-			</div>
+			<MoviesGrid movies={movies} loading={loading} error={error} />
 		</div>
 	);
 }
