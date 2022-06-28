@@ -21,9 +21,7 @@ const searchTrending = async (
 	else searchError(statusCode);
 };
 
-export const useMoviesSearch = search => {
-	// console.log(search);
-
+export const useMoviesSearch = () => {
 	const [moviesSearch, setMoviesSearch] = useReducer(
 		moviesSearchReducer,
 		MOVIES_SEARCH_INITIAL_STATE
@@ -44,18 +42,24 @@ export const useMoviesSearch = search => {
 			error,
 		});
 
+	const setSearchTerm = searchTerm =>
+		setMoviesSearch({
+			type: MOVIES_SEARCH_ACTIONS.SET_SEARCH_TERM,
+			searchTerm,
+		});
+
 	const setPage = page =>
 		setMoviesSearch({ type: MOVIES_SEARCH_ACTIONS.SET_PAGE, page });
 
 	useEffect(() => {
 		searchTrending(
-			search,
+			moviesSearch.searchTerm,
 			moviesSearch.page,
 			startSearch,
 			searchSuccess,
 			searchError
 		);
-	}, [search, moviesSearch.page]);
+	}, [moviesSearch.searchTerm, moviesSearch.page]);
 
-	return { ...moviesSearch, setPage };
+	return { ...moviesSearch, setSearchTerm, setPage };
 };

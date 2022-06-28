@@ -9,8 +9,6 @@ export const searchMoviesApi = async (search, page) => {
 		  }&query=${search}&page=${page}`
 		: `${API_TOP_MOVIES}${import.meta.env.VITE_API_KEY}&page=${page}`;
 
-	// console.log(search);
-
 	try {
 		const response = await axios.get(endpoint);
 
