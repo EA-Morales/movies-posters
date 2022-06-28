@@ -1,20 +1,27 @@
+import { useState } from 'react';
 import MovieCard from './components/movie-card';
 import { useMoviesSearch } from './lib/hooks/useMoviesSearch';
 import './styles/App.css';
 
 function App() {
-	const { movies, page, loading, error, setPage } = useMoviesSearch();
+	const [search, setSearch] = useState('');
+	const { movies, page, loading, error, setPage } = useMoviesSearch(search);
 
+	console.log(search);
+
+	// TODO - This elements under don't belong this component
 	if (loading) return <div>Loading...</div>;
 
 	if (error) return <div>{error}</div>;
+	// TODO
 
 	return (
 		<div className='container mx-auto'>
 			<div className='flex justify-center'>
 				<input
 					className=''
-					onChange={event => handleChange(event)}
+					value={search}
+					onChange={event => setSearch(event.target.value)}
 					type='text'
 					placeholder='Search movie...'
 				/>
@@ -38,9 +45,5 @@ function App() {
 		</div>
 	);
 }
-
-const handleChange = event => {
-	console.log(event.target.value);
-};
 
 export default App;
