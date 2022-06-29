@@ -52,13 +52,18 @@ export const useMoviesSearch = () => {
 		setMoviesSearch({ type: MOVIES_SEARCH_ACTIONS.SET_PAGE, page });
 
 	useEffect(() => {
-		searchTrending(
-			moviesSearch.searchTerm,
-			moviesSearch.page,
-			startSearch,
-			searchSuccess,
-			searchError
-		);
+		// TODO - REFACTOR THIS TIMEOUT - but for now is working fine
+		const timeOutId = setTimeout(() => {
+			searchTrending(
+				moviesSearch.searchTerm,
+				moviesSearch.page,
+				startSearch,
+				searchSuccess,
+				searchError
+			);
+		}, 1000);
+
+		return () => clearTimeout(timeOutId);
 	}, [moviesSearch.searchTerm, moviesSearch.page]);
 
 	return { ...moviesSearch, setSearchTerm, setPage };
