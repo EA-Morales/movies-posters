@@ -21,7 +21,7 @@ const MovieCard = ({
 					});
 				}}
 				style={{ backgroundImage: `url(${image})` }}
-				className='aspect-2/3 bg-cover p-2 relative bg-slate-500'>
+				className='aspect-2/3 bg-cover p-2 relative bg-slate-500 hover:scale-110'>
 				<h3 className='absolute bottom-0'>{title}</h3>
 				<div className='flex justify-between'>
 					<span>{rating}</span>

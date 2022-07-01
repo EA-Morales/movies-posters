@@ -20,18 +20,16 @@ const HomePage = () => {
 
 	return (
 		<div className='container mx-auto'>
-			<div className='flex justify-center mt-4'>
-				<div className='flex gap-4'>
-					<input
-						className='text-black'
-						value={searchTerm}
-						onChange={event => setSearchTerm(event.target.value)}
-						type='text'
-						placeholder='Search movie...'
-					/>
-					<div className='flex gap-4 '>
-						<Pagination page={page} setPage={setPage} totalPages={totalPages} />
-					</div>
+			<div className='flex justify-between px-4 mt-4'>
+				<input
+					className='text-black p-1 italic rounded-lg'
+					value={searchTerm}
+					onChange={event => setSearchTerm(event.target.value)}
+					type='text'
+					placeholder='Search movie...'
+				/>
+				<div className='flex gap-4 '>
+					<Pagination page={page} setPage={setPage} totalPages={totalPages} />
 				</div>
 			</div>
 			<MoviesGrid
