@@ -17,7 +17,7 @@ const searchTrending = async (
 
 	const { success, data, statusCode } = await searchMoviesApi(search, page);
 
-	if (success) searchSuccess(data.movies);
+	if (success) searchSuccess(data.movies, data.totalPages);
 	else searchError(statusCode);
 };
 
@@ -30,10 +30,11 @@ export const useMoviesSearch = () => {
 	const startSearch = () =>
 		setMoviesSearch({ type: MOVIES_SEARCH_ACTIONS.START_SEARCH });
 
-	const searchSuccess = movies =>
+	const searchSuccess = (movies, totalPages) =>
 		setMoviesSearch({
 			type: MOVIES_SEARCH_ACTIONS.SEARCH_SUCCESS,
 			movies,
+			totalPages,
 		});
 
 	const searchError = error =>
