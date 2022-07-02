@@ -16,6 +16,7 @@ const MoviesGrid = ({ movies, loading, error, setPreviewMovie }) => {
 						landscapeImage={movie.landscapeImage}
 						year={movie.year}
 						rating={movie.rating}
+						genres={movie.genres}
 						setPreviewMovie={setPreviewMovie}
 					/>
 				))}

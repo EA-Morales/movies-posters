@@ -5,6 +5,7 @@ const MovieCard = ({
 	landscapeImage,
 	year,
 	rating,
+	genres,
 	setPreviewMovie,
 }) => {
 	return (
@@ -18,6 +19,7 @@ const MovieCard = ({
 						landscapeImage,
 						year,
 						rating,
+						genres,
 					});
 				}}
 				style={{ backgroundImage: `url(${image})` }}
