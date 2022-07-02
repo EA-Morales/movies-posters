@@ -1,4 +1,5 @@
 import { createPortal } from 'react-dom';
+import CrossIcon from './icons/CrossIcon';
 
 const Modal = ({ children, closeModal }) => {
 	return createPortal(
@@ -6,8 +7,8 @@ const Modal = ({ children, closeModal }) => {
 			<div className='relative w-3/4 mx-auto p-4 bg-black'>
 				<button
 					onClick={closeModal}
-					className='absolute rounded-full -top-2 -right-2 p-2 bg-red-600'>
-					x
+					className='absolute rounded-full -top-2 -right-2 p-2 bg-netflix-primary'>
+					<CrossIcon className='w-4' />
 				</button>
 				{children}
 			</div>

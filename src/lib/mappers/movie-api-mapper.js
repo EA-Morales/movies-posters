@@ -10,5 +10,5 @@ export const movieApiMapper = movieApiObject => ({
 	image: `${API_IMAGE_PORTRAIT_HOST}${movieApiObject.poster_path}`,
 	landscapeImage: `${API_IMAGE_LANDSCAPE_HOST}${movieApiObject.backdrop_path}`,
 	year: new Date(movieApiObject.release_date).getFullYear(),
-	rating: movieApiObject.vote_average,
+	rating: Math.round(movieApiObject.vote_average * 10) / 10,
 });
