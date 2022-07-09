@@ -3,6 +3,7 @@ import Modal from '../components/Modal';
 import MoviePreview from '../components/MoviePreview';
 import MoviesGrid from '../components/movies-grid';
 import Pagination from '../components/Pagination';
+import Navbar from '../components/Navbar';
 import { useMoviesSearch } from '../lib/hooks/useMoviesSearch';
 
 const HomePage = () => {
@@ -21,6 +22,7 @@ const HomePage = () => {
 
 	return (
 		<div className='container mx-auto'>
+			<Navbar />
 			<div className='flex justify-between px-4 mt-4'>
 				<input
 					className='text-black p-1 italic rounded-lg'
