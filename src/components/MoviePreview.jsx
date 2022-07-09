@@ -7,10 +7,9 @@ const MoviePreview = ({
 	rating,
 	genres,
 }) => {
-	console.log(genres);
 
 	return (
-		<div className='w-full'>
+		<div className='w-full'> 
 			<img className='w-full' src={landscapeImage} alt='' />
 			<h1 className='text-xl font-bold my-6'>{title}</h1>
 			<div className='mb-4'>

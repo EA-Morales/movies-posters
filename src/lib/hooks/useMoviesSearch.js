@@ -53,8 +53,9 @@ export const useMoviesSearch = () => {
 		setMoviesSearch({ type: MOVIES_SEARCH_ACTIONS.SET_PAGE, page });
 
 	useEffect(() => {
-		// TODO - REFACTOR THIS TIMEOUT - but for now is working fine
-		const timeOutId = setTimeout(() => {
+		// TODO - REFACTOR THIS TIMEOUT - must be a debounce function
+
+		const timeOutSearch = setTimeout(() => {
 			searchTrending(
 				moviesSearch.searchTerm,
 				moviesSearch.page,
@@ -64,7 +65,7 @@ export const useMoviesSearch = () => {
 			);
 		}, 500);
 
-		return () => clearTimeout(timeOutId);
+		return () => clearTimeout(timeOutSearch);
 	}, [moviesSearch.searchTerm, moviesSearch.page]);
 
 	return { ...moviesSearch, setSearchTerm, setPage };

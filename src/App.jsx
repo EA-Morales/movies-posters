@@ -1,7 +1,7 @@
 import HomePage from './pages/HomePage';
 import './styles/App.css';
 
-function App() {
+function App() {	
 	return <HomePage />;
 }
 

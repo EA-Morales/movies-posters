@@ -6,6 +6,7 @@ import Pagination from '../components/Pagination';
 import { useMoviesSearch } from '../lib/hooks/useMoviesSearch';
 
 const HomePage = () => {
+	// TODO - remove this State and creat a context for the modal
 	const [previewMovie, setPreviewMovie] = useState();
 	const {
 		movies,
