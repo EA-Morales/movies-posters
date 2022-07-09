@@ -40,6 +40,6 @@ https://developers.themoviedb.org/3/getting-started/introduction
 
 ### Variables de entorno
 
-- Crear en src el archivo .env.local e inicializar esta variable
+- Crear en root el archivo .env.local e inicializar esta variable
 
 VITE_API_KEY='(AQUI VA TU API KEY SIN LOS PARENTESIS)'
