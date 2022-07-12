@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { UserContext } from '../lib/context/UserProvider';
 
 const Login = () => {
-	const { user, signIn, signOut } = useContext(UserContext);
+	const { user, signInWithGoogle, signOut } = useContext(UserContext);
 
 	return (
 		<div className='min-h-screen flex justify-center items-center'>
@@ -20,7 +20,7 @@ const Login = () => {
 					<Link
 						to={'/'}
 						className='bg-netflix-primary py-2 px-4 rounded-md font-medium'
-						onClick={signIn}>
+						onClick={signInWithGoogle}>
 						Iniciar sesión
 					</Link>
 				)}

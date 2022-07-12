@@ -12,6 +12,8 @@ const Navbar = () => {
 				Logo de net-flis
 			</p>
 
+			<p>{user}</p>
+
 			{user ? (
 				<button
 					className='bg-netflix-primary py-2 px-4 rounded-md font-medium'
