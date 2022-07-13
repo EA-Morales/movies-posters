@@ -1,9 +1,24 @@
-import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { useContext, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../lib/context/UserProvider';
 
 const Login = () => {
-	const { user, signInWithGoogle, signOut } = useContext(UserContext);
+	const { user, signInWithGoogle, logOut } = useContext(UserContext);
+	const navigate = useNavigate();
+
+	const handleGoogleSignIn = async () => {
+		try {
+			await signInWithGoogle();
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
+	useEffect(() => {
+		if (user != null) {
+			navigate('/account');
+		}
+	}, [user]);
 
 	return (
 		<div className='min-h-screen flex justify-center items-center'>
@@ -13,16 +28,15 @@ const Login = () => {
 				{user ? (
 					<button
 						className='bg-netflix-primary py-2 px-4 rounded-md font-medium'
-						onClick={signOut}>
+						onClick={logOut}>
 						Cerrar sesión
 					</button>
 				) : (
-					<Link
-						to={'/'}
+					<button
 						className='bg-netflix-primary py-2 px-4 rounded-md font-medium'
-						onClick={signInWithGoogle}>
+						onClick={handleGoogleSignIn}>
 						Iniciar sesión
-					</Link>
+					</button>
 				)}
 			</div>
 		</div>

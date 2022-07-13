@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import { UserContext } from '../lib/context/UserProvider';
 
 const Navbar = () => {
-	const { user, signOut } = useContext(UserContext);
+	const { user, logOut } = useContext(UserContext);
 
 	return (
 		<div className='flex justify-between py-2 px-4'>
@@ -12,12 +12,10 @@ const Navbar = () => {
 				Logo de net-flis
 			</p>
 
-			<p>{user}</p>
-
 			{user ? (
 				<button
 					className='bg-netflix-primary py-2 px-4 rounded-md font-medium'
-					onClick={signOut}>
+					onClick={logOut}>
 					Logout
 				</button>
 			) : (
