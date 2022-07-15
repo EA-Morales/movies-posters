@@ -7,7 +7,7 @@ const MoviesGrid = ({ movies, loading, error, setPreviewMovie }) => {
 	return (
 		<div className='flex flex-wrap'>
 			{movies &&
-				movies.map(movie => (
+				movies.map((movie) => (
 					<MovieCard
 						key={movie.id}
 						title={movie.title}

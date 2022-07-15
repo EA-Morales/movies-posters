@@ -37,19 +37,19 @@ export const useMoviesSearch = () => {
 			totalPages,
 		});
 
-	const searchError = error =>
+	const searchError = (error) =>
 		setMoviesSearch({
 			type: MOVIES_SEARCH_ACTIONS.SEARCH_ERROR,
 			error,
 		});
 
-	const setSearchTerm = searchTerm =>
+	const setSearchTerm = (searchTerm) =>
 		setMoviesSearch({
 			type: MOVIES_SEARCH_ACTIONS.SET_SEARCH_TERM,
 			searchTerm,
 		});
 
-	const setPage = page =>
+	const setPage = (page) =>
 		setMoviesSearch({ type: MOVIES_SEARCH_ACTIONS.SET_PAGE, page });
 
 	useEffect(() => {

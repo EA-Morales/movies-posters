@@ -27,7 +27,7 @@ const HomePage = () => {
 				<input
 					className='text-black p-1 italic rounded-lg'
 					value={searchTerm}
-					onChange={event => setSearchTerm(event.target.value)}
+					onChange={(event) => setSearchTerm(event.target.value)}
 					type='text'
 					placeholder='Search movie...'
 				/>
