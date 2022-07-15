@@ -2,7 +2,8 @@
 export const API_HOST = 'https://api.themoviedb.org/3';
 
 // Constant Trending movies
-export const API_TOP_MOVIES = `https://api.themoviedb.org/3/trending/movie/week?api_key=`;
+export const API_TOP_MOVIES =
+	'https://api.themoviedb.org/3/trending/movie/week?api_key=';
 
 // Constant Search movies
 export const API_SEARCH_MOVIE = 'https://api.themoviedb.org/3/search/movie?';

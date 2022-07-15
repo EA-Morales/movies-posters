@@ -1,5 +1,6 @@
 import { useReducer, useEffect } from 'react';
 import { searchMoviesApi } from '../api/search-movies-api';
+import { searchSeriesApi } from '../api/search-series-api';
 import {
 	moviesSearchReducer,
 	MOVIES_SEARCH_ACTIONS,
@@ -16,6 +17,9 @@ const searchTrending = async (
 	startSearch();
 
 	const { success, data, statusCode } = await searchMoviesApi(search, page);
+	const series = await searchSeriesApi();
+
+	console.log(series);
 
 	if (success) searchSuccess(data.movies, data.totalPages);
 	else searchError(statusCode);

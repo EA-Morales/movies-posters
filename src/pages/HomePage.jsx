@@ -1,10 +1,12 @@
 import { useState } from 'react';
+import { useMoviesSearch } from '../lib/hooks/useMoviesSearch';
+
+import Navbar from '../components/Navbar';
+import Pagination from '../components/Pagination';
+import MoviesRow from '../components/MoviesRow';
+import MoviesGrid from '../components/movies-grid';
 import Modal from '../components/Modal';
 import MoviePreview from '../components/MoviePreview';
-import MoviesGrid from '../components/movies-grid';
-import Pagination from '../components/Pagination';
-import Navbar from '../components/Navbar';
-import { useMoviesSearch } from '../lib/hooks/useMoviesSearch';
 
 const HomePage = () => {
 	// TODO - remove this State and creat a context for the modal
@@ -35,6 +37,7 @@ const HomePage = () => {
 					<Pagination page={page} setPage={setPage} totalPages={totalPages} />
 				</div>
 			</div>
+			<MoviesRow movies={movies} />
 			<MoviesGrid
 				movies={movies}
 				loading={loading}
