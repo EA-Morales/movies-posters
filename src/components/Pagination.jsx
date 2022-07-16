@@ -1,5 +1,4 @@
-import ArrowLeft from './icons/ArrowLeft';
-import ArrowRight from './icons/ArrowRight';
+import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
 
 const Pagination = ({ page, totalPages, setPage }) => {
 	const isBackDisable = page === 1;
@@ -11,7 +10,7 @@ const Pagination = ({ page, totalPages, setPage }) => {
 				className='bg-netflix-primary flex justify-center items-center rounded-full p-1'
 				disabled={isBackDisable}
 				onClick={() => setPage(page - 1)}>
-				<ArrowLeft className='h-4' />
+				<AiOutlineLeft size={20} color={'white'} />
 			</button>
 			<span>
 				Pagina {page} de {totalPages}
@@ -20,7 +19,7 @@ const Pagination = ({ page, totalPages, setPage }) => {
 				className='bg-netflix-primary flex justify-center items-center rounded-full p-1'
 				disabled={isNextDisable}
 				onClick={() => setPage(page + 1)}>
-				<ArrowRight className='h-4' />
+				<AiOutlineRight size={20} color={'white'} />
 			</button>
 		</div>
 	);

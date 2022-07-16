@@ -1,6 +1,5 @@
-import { Fragment } from 'react';
-import ArrowLeft from './icons/ArrowLeft';
-import ArrowRight from './icons/ArrowRight';
+import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
+
 import MovieTest from './Movie-test';
 
 const MoviesRow = ({ movies }) => {
@@ -14,13 +13,13 @@ const MoviesRow = ({ movies }) => {
 	};
 
 	return (
-		<Fragment>
+		<>
 			<h2 className='text-white font-bold md:text-xl p-4'>Trending movies</h2>
 			<div className='relative flex items-center group snap-x snap-mandatory'>
 				<p
 					onClick={slideLeft}
-					className='bg-white left-0 rounded-full absolute opacity-50 hover:opacity-100 z-10 hidden group-hover:block'>
-					<ArrowLeft className='h-8' color='black' />
+					className='bg-white p-1 left-0 rounded-full absolute opacity-50 hover:opacity-100 hover:scale-125 z-10 hidden group-hover:block'>
+					<AiOutlineLeft size={20} color={'black'} />
 				</p>
 				<div
 					id={'slider'}
@@ -41,12 +40,12 @@ const MoviesRow = ({ movies }) => {
 				</div>
 				<p
 					onClick={slideRight}
-					className='bg-white right-0 rounded-full absolute opacity-50 hover:opacity-100 z-10 hidden group-hover:block'
+					className='bg-white right-0 p-1 rounded-full absolute opacity-50 hover:opacity-100 hover:scale-125 z-10 hidden group-hover:block'
 					size={40}>
-					<ArrowRight className='h-8' color='red' />
+					<AiOutlineRight size={20} color={'black'} />
 				</p>
 			</div>
-		</Fragment>
+		</>
 	);
 };
 
