@@ -38,12 +38,14 @@ const HomePage = () => {
 				</div>
 			</div>
 			<MoviesRow movies={movies} />
+
 			<MoviesGrid
 				movies={movies}
 				loading={loading}
 				error={error}
 				setPreviewMovie={setPreviewMovie}
 			/>
+
 			{previewMovie && (
 				<Modal closeModal={() => setPreviewMovie()}>
 					<MoviePreview {...previewMovie} />

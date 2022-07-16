@@ -19,7 +19,7 @@ const searchTrending = async (
 	const { success, data, statusCode } = await searchMoviesApi(search, page);
 	const series = await searchSeriesApi();
 
-	console.log(series);
+	console.log(series.data);
 
 	if (success) searchSuccess(data.movies, data.totalPages);
 	else searchError(statusCode);
