@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useMoviesSearch } from '../lib/hooks/useMoviesSearch';
 
-import Navbar from '../components/Navbar';
 import Pagination from '../components/Pagination';
 import MoviesRow from '../components/MoviesRow';
 import MoviesGrid from '../components/movies-grid';
@@ -24,7 +23,6 @@ const HomePage = () => {
 
 	return (
 		<div className='container mx-auto'>
-			<Navbar />
 			<div className='flex justify-between px-4 mt-4'>
 				<input
 					className='text-black p-1 italic rounded-lg'
@@ -38,14 +36,12 @@ const HomePage = () => {
 				</div>
 			</div>
 			<MoviesRow movies={movies} />
-
 			<MoviesGrid
 				movies={movies}
 				loading={loading}
 				error={error}
 				setPreviewMovie={setPreviewMovie}
 			/>
-
 			{previewMovie && (
 				<Modal closeModal={() => setPreviewMovie()}>
 					<MoviePreview {...previewMovie} />

@@ -9,7 +9,7 @@ const MovieCard = ({
 	setPreviewMovie,
 }) => {
 	return (
-		<div className='w-1/4 p-4'>
+		<div className='w-1/4 p-4 inline-block'>
 			<div
 				onClick={() => {
 					setPreviewMovie({
