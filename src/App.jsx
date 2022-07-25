@@ -1,21 +1,30 @@
-import { useMoviesSearch } from './lib/hooks/useMoviesSearch';
+import { Route, Routes } from 'react-router-dom';
+
+import Navbar from './components/Navbar';
+import HomePage from './pages/HomePage';
+import Account from './pages/Account';
+import Login from './pages/Login';
+import Protected from './pages/Protected';
+
 import './styles/App.css';
 
 function App() {
-	const { movies, page, loading, error, setPage } = useMoviesSearch();
-
-	if (loading) return <div>Loading...</div>;
-
-	if (error) return <div>{error}</div>;
-
 	return (
-		<div className='container mx-auto'>
-			<div className='flex gap-4'>
-				<button onClick={() => setPage(page + -1)}>{page} page</button>
-				<button onClick={() => setPage(page + 1)}>page {page}</button>
-			</div>
-			{movies && movies.map(movie => <p key={movie.id}>{movie.title}</p>)}
-		</div>
+		<>
+			<Navbar />
+			<Routes>
+				<Route path='/' element={<HomePage />} />
+				<Route path='/Login' element={<Login />} />
+				<Route
+					path='/account'
+					element={
+						<Protected>
+							<Account />
+						</Protected>
+					}
+				/>
+			</Routes>
+		</>
 	);
 }
 
